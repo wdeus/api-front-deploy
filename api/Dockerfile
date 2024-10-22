@@ -1,19 +1,11 @@
-# Usar a imagem oficial do Jenkins como base
-FROM jenkins/jenkins:lts
+FROM node:alpine
 
-# Definir que as operações abaixo sejam executadas como root para poder instalar pacotes
-USER root
+WORKDIR /usr/src/app
 
-# Instalar Node.js (incluindo npm) na versão 18.19
-RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
-    apt-get install -y nodejs && \
-    npm install -g @angular/cli@latest
+COPY . /usr/src/app
 
-# Definir o usuário de volta para Jenkins para manter as permissões corretas
-USER jenkins
+RUN npm install -g @angular/cli
 
-# Expor a porta padrão do Jenkins
-EXPOSE 8080
+RUN npm install
 
-# Inicializar o Jenkins
-CMD ["bash", "-c", "/usr/local/bin/jenkins.sh"]
+CMD ["ng", "serve", "--host", "0.0.0.0"]

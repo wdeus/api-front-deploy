@@ -68,7 +68,7 @@ export class ModalConfigComponent implements OnInit {
   }
 
   getFatos(): void {
-    this.httpService.get("http://localhost:8080/filtros/fatos")
+    this.httpService.get("http://spring_app_container:8080/filtros/fatos")
       .subscribe({
         next: (responses: any[]) => {
           this.fatos = responses
@@ -77,7 +77,7 @@ export class ModalConfigComponent implements OnInit {
   }
 
   onFatoChange(value: string): void {
-    this.httpService.get(`http://localhost:8080/filtros/dimensoes?fato=${value}`)
+    this.httpService.get(`http://spring_app_container:8080/filtros/dimensoes?fato=${value}`)
       .subscribe({
         next: (response: any[]) => {
           this.dimensao = response;
