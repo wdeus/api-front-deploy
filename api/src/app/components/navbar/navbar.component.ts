@@ -182,7 +182,7 @@ export class NavbarComponent implements OnInit {
       const formData: FormData = new FormData();
       formData.append('file', file, file.name); 
 
-      this.httpService.post("http://spring_app_container:8080/importacao", formData, {
+      this.httpService.post("http://20.3.129.97:8080/importacao", formData, {
         headers: { 'enctype': 'multipart/form-data' }
       }).subscribe(
         response => {

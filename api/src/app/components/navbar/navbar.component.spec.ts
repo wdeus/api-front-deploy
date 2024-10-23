@@ -53,7 +53,7 @@ describe('NavbarComponent', () => {
 
     component.importDadosProvisionados(mockEvent);
 
-    const req = httpMock.expectOne('http://spring_app_container:8080/importacao');
+    const req = httpMock.expectOne('http://20.3.129.97:8080/importacao');
     expect(req.request.method).toBe('POST');
 
     req.flush({ success: true });
@@ -67,7 +67,7 @@ describe('NavbarComponent', () => {
 
     component.importDadosProvisionados(mockEvent);
 
-    const req = httpMock.expectOne('http://spring_app_container:8080/importacao');
+    const req = httpMock.expectOne('http://20.3.129.97:8080/importacao');
     expect(req.request.method).toBe('POST');
 
     req.flush({ message: 'Erro no upload' }, { status: 500, statusText: 'Server Error' });
@@ -82,7 +82,7 @@ describe('NavbarComponent', () => {
 
     component.importDadosProvisionados(mockEvent);
 
-    httpMock.expectNone('http://spring_app_container:8080/importacao');
+    httpMock.expectNone('http://20.3.129.97:8080/importacao');
     expect(component.isLoading).toBeFalse();
   });
 });
