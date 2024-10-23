@@ -23,4 +23,4 @@ EXPOSE 4200
 CMD ["ng", "serve", "--host", "0.0.0.0"]
 
 # (Opcional) Limpe os caches do npm para reduzir o tamanho da imagem
-RUN npm cache clean --forceclea
+RUN npm cache clean --force
