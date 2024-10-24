@@ -19,7 +19,7 @@ jobs:
         run: sudo docker rm -f angular_app_container_dev
 
       - name: Run Docker container (DEV)
-        run: docker run -d -p 8080:8080 --name angular_app_container_dev --network api_network pixelapi/angular_app:dev-latest
+        run: docker run -d -p 4200:4200 --name angular_app_container_dev --network api_network pixelapi/angular_app:dev-latest
 
   deploy-hml:
     if: github.ref == 'refs/heads/qas'
@@ -32,7 +32,7 @@ jobs:
         run: sudo docker rm -f angular_app_container_hml
 
       - name: Run Docker container (HML)
-        run: docker run -d -p 8080:8080 --name angular_app_container_hml --network api_network pixelapi/angular_app:hml-latest
+        run: docker run -d -p 4200:4200 --name angular_app_container_hml --network api_network pixelapi/angular_app:hml-latest
 
   deploy-prod:
     if: github.ref == 'refs/heads/main'
@@ -45,4 +45,4 @@ jobs:
         run: sudo docker rm -f angular_app_container_prod
 
       - name: Run Docker container (PROD)
-        run: docker run -d -p 8080:8080 --name angular_app_container_prod --network api_network pixelapi/angular_app:latest
+        run: docker run -d -p 4200:4200 --name angular_app_container_prod --network api_network pixelapi/angular_app:latest
